@@ -3,9 +3,7 @@ import java.util.Random;
 
 public class BoardingPass {
 
-    public void firstLine(){
-        Scanner input = new Scanner(System.in);
-        Boarding_Pass_Info a = new Boarding_Pass_Info();
+    public void firstLine(Scanner input, Boarding_Pass_Info a){
         Random random = new Random();
 
         System.out.println("Boarding Pass Number: ");
@@ -43,55 +41,51 @@ public class BoardingPass {
 
 
     //Second line of info in Boarding pass
-    public void secondLine( ){
-        Scanner scanner = new Scanner(System.in);
-        Boarding_Pass_Info b = new Boarding_Pass_Info();
+    public void secondLine(Scanner input, Boarding_Pass_Info a){
 
         System.out.println("Name: ");
-        String setName = scanner.nextLine();
-        b.setName(setName);
+        String setName = input.nextLine();
+        a.setName(setName);
 
 
         System.out.println("Email: ");
-        String setEmail = scanner.nextLine();
-        b.setEmail(setEmail);
+        String setEmail = input.nextLine();
+        a.setEmail(setEmail);
 
 
         System.out.println("Phone Number: ");
-        String setPhoneNumber = scanner.nextLine();
-        b.setPhoneNumber(setPhoneNumber);
+        String setPhoneNumber = input.nextLine();
+        a.setPhoneNumber(setPhoneNumber);
 
 
         System.out.println("Gender(F/M): ");
-        String setGender = scanner.nextLine();
-        b.setGender(setGender);
+        String setGender = input.nextLine();
+        a.setGender(setGender);
 
 
         System.out.println("Age: ");
-        int setAge = scanner.nextInt();
-        b.setAge(setAge);
+        int setAge = input.nextInt();
+        a.setAge(setAge);
 
 
     }
 
-    public void ticketPrice(){
+    public void ticketPrice(Boarding_Pass_Info a){
         int min = 120;
         int max = 1000;
         int ticketPrice = (int)Math.floor(Math.random()*(max-min+1)+min);
-        Boarding_Pass_Info c = new Boarding_Pass_Info();
-        System.out.println(c.getAge());
 
-        if(c.getAge() <= 12){
+        if(a.getAge() <= 12){
             System.out.println("Ticket Price is: $" + ticketPrice);
             System.out.println("Children 12 and under get a %50 discount.");
             ticketPrice -= (ticketPrice * 0.5);
             System.out.println("Ticket Price after discount: $" + ticketPrice);
-        }else if(c.getAge() >= 60){
+        }else if(a.getAge() >= 60){
             System.out.println("Ticket Price is: $" + ticketPrice);
             System.out.println("Senior citizens of 60 years or older receive a %60 discount.");
             ticketPrice -= (ticketPrice * 0.6);
             System.out.println("Ticket price after %60 discount: $" + ticketPrice);
-        }else if(c.getGender().contains("F")){
+        }else if(a.getGender().contains("F")){
             System.out.println("Ticket Price is: $" + ticketPrice);
             System.out.println("Women receive a %25 discount.");
             ticketPrice -= (ticketPrice * 0.25);
