@@ -6,33 +6,38 @@ public class BoardingPass {
     public void firstLine(Scanner input, Boarding_Pass_Info a){
         Random random = new Random();
 
-        System.out.println("Boarding Pass Number: ");
+        System.out.print("Boarding Pass Number: ");
         String setBoardingPassNumber = input.nextLine();
         a.setBoardingPassNumber(setBoardingPassNumber);
 
 
-        System.out.println("Departure Date(MM/DD/YYYY): ");
+        System.out.print("Departure Date(MM/DD/YYYY): ");
         String setDate = input.nextLine();
         a.setDate(setDate);
 
 
-        System.out.println("Origin: ");
+        System.out.print("Origin: ");
         String setOrigin = input.nextLine();
         a.setOrigin(setOrigin);
 
 
-        System.out.println("Destination: ");
+        System.out.print("Destination: ");
         String setDestination = input.nextLine();
         a.setDestination(setDestination);
 
 
         //Random ETA generator
-        int hour = random.nextInt(24);
-        int minute = random.nextInt(50);
-        String setETA = String.valueOf(hour) + ":" + String.valueOf(minute);
+        int hour = random.nextInt(23);
+        int minute = random.nextInt(59);
+        if(minute < 10 ){
+            String setETA = String.valueOf(hour) + ":0" + String.valueOf(minute);
+            System.out.println("ETA: " + setETA);
+        }else {
+            String setETA = String.valueOf(hour) + ":" + String.valueOf(minute);
+            System.out.println("ETA: " + setETA);
+        }
 
-
-        System.out.println("Departure Time: ");
+        System.out.print("Departure Time: ");
         String setDepartureTime = input.nextLine();
         a.setDepartureTime(setDepartureTime);
 
@@ -43,27 +48,27 @@ public class BoardingPass {
     //Second line of info in Boarding pass
     public void secondLine(Scanner input, Boarding_Pass_Info a){
 
-        System.out.println("Name: ");
+        System.out.print("Name: ");
         String setName = input.nextLine();
         a.setName(setName);
 
 
-        System.out.println("Email: ");
+        System.out.print("Email: ");
         String setEmail = input.nextLine();
         a.setEmail(setEmail);
 
 
-        System.out.println("Phone Number: ");
+        System.out.print("Phone Number: ");
         String setPhoneNumber = input.nextLine();
         a.setPhoneNumber(setPhoneNumber);
 
 
-        System.out.println("Gender(F/M): ");
+        System.out.print("Gender(F/M): ");
         String setGender = input.nextLine();
         a.setGender(setGender);
 
 
-        System.out.println("Age: ");
+        System.out.print("Age: ");
         int setAge = input.nextInt();
         a.setAge(setAge);
 
