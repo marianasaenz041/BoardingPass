@@ -1,102 +1,110 @@
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.IOException;
+import java.nio.Buffer;
 import java.util.Scanner;
 import java.util.Random;
 
+
 public class BoardingPass {
 
-    public void firstLine(Scanner input, Boarding_Pass_Info a){
+
+    public void firstLine(Scanner input, Boarding_Pass_Info a, BufferedWriter writer) throws IOException {
         Random random = new Random();
 
         System.out.print("Boarding Pass Number: ");
-        String setBoardingPassNumber = input.nextLine();
-        a.setBoardingPassNumber(setBoardingPassNumber);
+        a.setBoardingPassNumber(input.nextLine());
+        writer.write("Boarding Pass Number: " + a.getBoardingPassNumber());
 
 
         System.out.print("Departure Date(MM/DD/YYYY): ");
-        String setDate = input.nextLine();
-        a.setDate(setDate);
-
+        a.setDate(input.nextLine());
+        writer.write("   Departure date: " + a.getDate());
 
         System.out.print("Origin: ");
-        String setOrigin = input.nextLine();
-        a.setOrigin(setOrigin);
-
+        a.setOrigin(input.nextLine());
+        writer.write("   Origin: " + a.getOrigin());
 
         System.out.print("Destination: ");
-        String setDestination = input.nextLine();
-        a.setDestination(setDestination);
-
+        a.setDestination(input.nextLine());
+        writer.write("   Destination: " + a.getDestination());
 
         //Random ETA generator
         int hour = random.nextInt(23);
         int minute = random.nextInt(59);
         if(minute < 10 ){
             String setETA = String.valueOf(hour) + ":0" + String.valueOf(minute);
-            System.out.println("ETA: " + setETA);
+            writer.write("   ETA: " + setETA);
         }else {
             String setETA = String.valueOf(hour) + ":" + String.valueOf(minute);
-            System.out.println("ETA: " + setETA);
+            writer.write("   ETA: " + setETA);
         }
 
-        System.out.print("Departure Time: ");
-        String setDepartureTime = input.nextLine();
-        a.setDepartureTime(setDepartureTime);
 
+        System.out.print("Departure Time: ");
+        a.setDepartureTime(input.nextLine());
+        writer.write("   Departure Time: " + a.getDepartureTime());
+        writer.write("\n");
 
     }
 
 
     //Second line of info in Boarding pass
-    public void secondLine(Scanner input, Boarding_Pass_Info a){
+    public void secondLine(Scanner input, Boarding_Pass_Info a, BufferedWriter writer) throws IOException {
 
         System.out.print("Name: ");
-        String setName = input.nextLine();
-        a.setName(setName);
-
+        a.setName(input.nextLine());
+        writer.write("Name: " + a.getName());
 
         System.out.print("Email: ");
-        String setEmail = input.nextLine();
-        a.setEmail(setEmail);
-
+        a.setEmail(input.nextLine());
+        writer.write("   Email: " + a.getEmail());
 
         System.out.print("Phone Number: ");
-        String setPhoneNumber = input.nextLine();
-        a.setPhoneNumber(setPhoneNumber);
+        a.setPhoneNumber(input.nextLine());
+        writer.write("   Phone Number: " + a.getPhoneNumber());
 
 
         System.out.print("Gender(F/M): ");
-        String setGender = input.nextLine();
-        a.setGender(setGender);
+        a.setGender(input.nextLine());
+        writer.write("   Gender: " + a.getGender());
 
 
         System.out.print("Age: ");
-        int setAge = input.nextInt();
-        a.setAge(setAge);
+        a.setAge(input.nextInt());
+        writer.write("   Age: " + a.getAge());
+        writer.write("\n");
 
 
     }
 
-    public void ticketPrice(Boarding_Pass_Info a){
+    public void ticketPrice(Boarding_Pass_Info a, BufferedWriter writer) throws IOException {
         int min = 120;
-        int max = 1000;
+        int max = 700;
+        double discount;
         int ticketPrice = (int)Math.floor(Math.random()*(max-min+1)+min);
 
         if(a.getAge() <= 12){
-            System.out.println("Ticket Price is: $" + ticketPrice);
-            System.out.println("Children 12 and under get a %50 discount.");
+            writer.write("Ticket Price: $" + ticketPrice);
+            discount = ticketPrice * 0.5;
+            writer.write("\nChildren's Discount %50: -$" + discount);
             ticketPrice -= (ticketPrice * 0.5);
-            System.out.println("Ticket Price after discount: $" + ticketPrice);
+            writer.write("\nTotal: $" + ticketPrice);
         }else if(a.getAge() >= 60){
-            System.out.println("Ticket Price is: $" + ticketPrice);
-            System.out.println("Senior citizens of 60 years or older receive a %60 discount.");
+            writer.write("Ticket Price: $" + ticketPrice);
+            discount = ticketPrice * 0.6;
+            writer.write("\nSenior Citizen Discount %60: -$" + discount);
             ticketPrice -= (ticketPrice * 0.6);
-            System.out.println("Ticket price after %60 discount: $" + ticketPrice);
+            writer.write("\nTotal: $" + ticketPrice);
         }else if(a.getGender().contains("F")){
-            System.out.println("Ticket Price is: $" + ticketPrice);
-            System.out.println("Women receive a %25 discount.");
+            writer.write("Ticket Price: $" + ticketPrice);
+            discount = ticketPrice * 0.25;
+            writer.write("\nWomen's Discount %25: -$" + discount);
             ticketPrice -= (ticketPrice * 0.25);
-            System.out.println("Price after %25 discount: $" + ticketPrice);
+            writer.write("\nTotal: $" + ticketPrice);
         }else{
-            System.out.println("Ticket Price is: $" + ticketPrice);
+            writer.write("Total: $" + ticketPrice);
         }
+        writer.write("\n\n\n\n\n");
     }
 }

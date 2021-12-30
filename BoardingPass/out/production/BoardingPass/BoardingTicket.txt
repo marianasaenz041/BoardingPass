@@ -1,0 +1,16 @@
+Boarding Pass Number: 12345   Departure date: 02/22/2023   Origin: Mexico City   Destination: Brownsville   ETA: 17:09   Departure Time: 12:23
+Name: Mariana   Email: marianasaenz041@gmail.com   Phone Number: (956)545-1543   Gender: F   Age: 25
+Ticket Price: $595
+Women's Discount %25: -$148.75
+Total: $446
+
+
+
+
+Boarding Pass Number: 123456   Departure date: 01/01/2021   Origin: Mexico   Destination: Rome   ETA: 19:32   Departure Time: 12:34
+Name: Eli Hernandez   Email: elihdz414@gmail.com   Phone Number: (956)455-5533   Gender: M   Age: 26
+Total: $457
+
+
+
+
