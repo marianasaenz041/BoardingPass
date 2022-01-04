@@ -1,5 +1,14 @@
+                          PYRAMID AIRLINE BOARDING PASS
+Boarding Pass Number: 1236   Departure date: 02/22/2022   Origin: Austin   Destination: Mexico City   ETA: 22:30   Departure Time: 10:22
+Name: Jane Doe   Email: janedoe@gmail.com   Phone Number: 956-123-4567   Gender: M   Age: 23
+Total: $538
 
 
+
+                          PYRAMID AIRLINE BOARDING PASS
+Boarding Pass Number: 5447632   Departure date: 02/22/2022   Origin: Austin   Destination: Atlanta   ETA: 9:37   Departure Time: 10:34
+Name: John Doe   Email: johndoe@email.com   Phone Number: 123-456-7890   Gender: M   Age: 24
+Total: $655
 
 
 
